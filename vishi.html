@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Creative Storytelling Website</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background: #fafafa;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #4CAF50;
+      padding: 20px 0;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 15px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+      position: relative;
+      padding-bottom: 5px;
+    }
+
+    nav a:hover {
+      color: #ff8c00;
+      transition: color 0.3s ease-in-out;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 2px;
+      background-color: #ff8c00;
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    section {
+      text-align: center;
+      padding: 40px 20px;
+      position: relative;
+    }
+
+    #home {
+      background: #f1f1f1;
+      color: #333;
+    }
+
+    #story {
+      background: #fff;
+      padding-bottom: 80px;
+    }
+
+    #about, #contact {
+      background: #f9f9f9;
+      padding: 40px 20px;
+    }
+
+    h1, h2 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      color: #333;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    p {
+      font-size: 1rem;
+      color: #666;
+      margin-top: 15px;
+      line-height: 1.5;
+    }
+
+    .slider-container {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      max-width: 900px;
+      margin: 40px auto;
+    }
+
+    .slider {
+      display: flex;
+      transition: transform 0.5s ease;
+    }
+
+    .slide {
+    position: relative;
+  min-width: 100%;
+  aspect-ratio: 1 / 1; /* NEW: Makes slide square */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
+}
+
+    .slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: brightness(90%);
+}
+    .slide-text {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 1.2rem;
+      color: white;
+      text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.6);
+      background: rgba(0, 0, 0, 0.3);
+      padding: 12px 20px;
+      max-width: 80%;
+      border-radius: 8px;
+    }
+
+    .nav-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0.4);
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      font-size: 18px;
+      cursor: pointer;
+      z-index: 10;
+      opacity: 0.8;
+      transition: opacity 0.3s ease;
+    }
+
+    #prevBtn {
+      left: 0;
+    }
+
+    #nextBtn {
+      right: 0;
+    }
+
+    .nav-btn:hover {
+      opacity: 1;
+    }
+
+    footer {
+      background: #4CAF50;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      font-size: 1rem;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      h1, h2 {
+        font-size: 1.8rem;
+      }
+
+      .slider-container {
+        width: 95%;
+      }
+
+      .slide-text {
+        font-size: 1rem;
+        padding: 10px 15px;
+      }
+    }
+
+    /* About Section Background */
+    #about {
+      background: #e0f7fa;
+      color: #333;
+    }
+
+    /* Contact Section - Credit */
+    #contact {
+      background: #f1f1f1;
+      color: #333;
+    }
+
+    #contact a {
+      color: #4CAF50;
+      text-decoration: none;
+    }
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#story">Story</a></li>
+        <li><a href="#about">Moral</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="home">
+    <h1>Welcome to the Storytelling Website</h1>
+    <p>Experience an immersive journey through captivating visuals in 20 slides.</p>
+  </section>
+
+  <section id="story">
+    <div class="story-title">
+        A Thousand Paper Stars.
+    </div>
+    <p class="story-intro">
+        
+        "Sometimes, the smallest gestures carry the greatest weight."
+        Genre: Emotional Drama / Family / Slice of Life
+        Setting: A quiet town in Japan, present day"
+    </p>
+    <div class="slider-container">
+      <button class="nav-btn" id="prevBtn">&#10094; Prev</button>
+      <div class="slider" id="slider">
+        <!-- Slide 1 -->
+        <div class="slide">
+          <img src="v2.jpg" alt="Slide 1">
+          <p class="slide-text">The Quiet Boy-Ren, 10, sits cross-legged by a window, his small fingers deftly folding paper stars from pastel-colored strips. The soft rustle of paper is the only sound in the quiet room. Outside, the world moves, but inside, everything is still. He lives with his grandmother, Aya, in a cozy, modest house filled with plants and old memories. His silence is a constant companion, yet his eyes observe everything.</p>
+        </div>
+        <!-- Slide 2 -->
+        <div class="slide">
+          <img src="v3.jpg" alt="Slide 2">
+          <p class="slide-text">Missing Pieces-In a flashback, a rain-soaked road. Headlights. Screeching tires.
+            Back in the present, Ren’s eyes glaze over an old family photo. Aya, now gray-haired and gentle, watches him from the kitchen doorway. Her heart aches with love and helplessness. Ren hasn't spoken since the accident two years ago.</p>
+        </div>
+        <!-- Slide 3 -->
+        <div class="slide">
+          <img src="v4.jpg" alt="Slide 3">
+          <p class="slide-text">3. A New Classmate - At school, Ren sits alone, folding another star. Enter Hana—a new girl with a ponytail and a contagious smile. She plops down beside him and introduces herself with a cheerful “Hi!” Ren looks at her, expression blank, then continues folding. She frowns, puzzled, but not discouraged.</p>
+        </div>
+        <!-- Slide 4 -->
+        <div class="slide">
+          <img src="v5.jpg" alt="Slide 4">
+          <p class="slide-text">4. The Bully
+            A larger boy, Kenta, strides by and knocks over Ren’s glass jar of stars. The tiny papers scatter across the floor like fallen petals. Ren freezes. Before a teacher can intervene, Hana kneels and helps pick them up. When they finish, Ren silently holds out a star to her—bright yellow. Her eyes widen, and she smiles again.
+            </p>
+        </div>
+        <!-- Slide 5 -->
+        <div class="slide">
+          <img src="v6.jpg" alt="Slide 5">
+          <p class="slide-text">5. The Garden
+            At home, Ren and Aya tend to their garden. Aya gently pulls weeds while Ren waters flowers. She pauses and says, “Each flower you care for returns your love in silence.” Ren watches a butterfly land on a sunflower and quietly nods.</p>
+        </div>
+        <!-- Slide 6 -->
+        <div class="slide">
+          <img src="v7.jpg" alt="Slide 6">
+          <p class="slide-text">6. Hana’s Curiosity
+            Intrigued by Ren’s stars, Hana checks out books from the library. She finds the legend of the thousand paper cranes and discovers a variation: a thousand stars can carry a wish to the heavens. Inspired, she begins folding too—clumsy at first, but determined.
+            </p>
+        </div>
+        <!-- Slide 7 -->
+        <div class="slide">
+          <img src="v8.jpg" alt="Slide 7">
+          <p class="slide-text">7. The First Smile
+            One afternoon, she struggles with a particularly stubborn fold. Ren notices. He gently reaches over, takes the strip, and shows her the technique. As she tries again, Ren watches. A shy, nearly invisible smile lifts the corner of his mouth. Hana gasps. “I saw that!”</p>
+        </div>
+        <!-- Slide 8 -->
+        <div class="slide">
+          <img src="v9.jpg" alt="Slide 8">
+          <p class="slide-text">8. Aya’s Cough
+            Aya begins coughing more frequently. She brushes it off with a wave of her hand, but we see her later taking medication when Ren isn't looking. She reads a letter beside her bed—one she has yet to give him.
+            </p>
+        </div>
+        <!-- Slide 9 -->
+        <div class="slide">
+          <img src="v10.jpg" alt="Slide 9">
+          <p class="slide-text">9. The Festival
+            During the town’s lantern festival, children release floating lanterns. Ren walks quietly beside Hana, his fingers curled tightly around a single star. He spots a lantern drifting upward with his parents’ names on it. His eyes shimmer with tears. One rolls down silently.</p>
+        </div>
+        <!-- Slide 10 -->
+        <div class="slide">
+          <img src="v11.jpg" alt="Slide 10">
+          <p class="slide-text">10.  Scattered Dream
+            At school, a sudden gust of wind blows Ren’s jar of stars off the windowsill. They scatter across the field. Ren sprints after them, heart pounding. Hana catches up to find him on the ground, trembling, tears finally flowing. She hugs him tightly. He doesn't pull away.
+            </p>
+        </div>
+        <!-- Slide 11 -->
+        <div class="slide">
+          <img src="v12.jpg" alt="Slide 11">
+          <p class="slide-text">11. A Promise
+            The next day, Ren hands Hana a small, neatly folded note. Inside:
+            "Help me fold 1,000 stars—for Grandma.”
+            Hana looks at him, stunned. Then smiles, with tears in her eyes. “Let’s do it.”</p>
+        </div>
+        <!-- Slide 12 -->
+        <div class="slide">
+          <img src="v13.jpg" alt="Slide 12">
+          <p class="slide-text">12. The Secret Drawer
+            Ren rummages through a cabinet and finds an old photo album tucked in a drawer. Photos of his young parents, Aya in her youth, smiling with her husband. In the back, a note: “Life is not lost—it changes form.”
+            </p>
+        </div>
+        <!-- Slide 13 -->
+        <div class="slide">
+          <img src="v14.jpg" alt="Slide 13">
+          <p class="slide-text">13. A Race Against Time
+            Aya collapses one morning. She’s taken to the hospital. The doctor tells Ren her heart condition has worsened. She may not have much time. The silence in Ren’s world deepens, but determination rises behind his eyes.
+            </p>
+        </div>
+        <!-- Slide 14 -->
+        <div class="slide">
+          <img src="v15.jpg" alt="Slide 14">
+          <p class="slide-text">14. The Paper Wish
+            Ren folds stars day and night. Hana rallies classmates. One by one, they join in. Desks are covered in paper strips. The classroom becomes a quiet chorus of whispered wishes and rustling folds. Teachers glance on, moved but speechless.
+            </p>
+        </div>
+        <!-- Slide 15 -->
+        <div class="slide">
+          <img src="v16.jpg" alt="Slide 15">
+          <p class="slide-text">15. Aya’s Hospital Room
+            Ren walks into her hospital room, holding a large glass jar filled with 1,000 stars. He sets it gently on the table beside her. Aya looks at it, and then at him. Her eyes fill with tears. She reaches out, brushing his cheek. “They’re beautiful…”
+            </p>
+        </div>
+        <!-- Slide 16 -->
+        <div class="slide">
+          <img src="v17.jpg" alt="Slide 16">
+          <p class="slide-text">16. The First Word
+            Ren’s lips part. A soft, trembling voice escapes:
+            “Don’t go yet.”
+            The room stills. Aya squeezes his hand and whispers, “I never will.”
+            </p>
+        </div>
+        <!-- Slide 17 -->
+        <div class="slide">
+          <img src="v18.jpg" alt="Slide 17">
+          <p class="slide-text">17. A Peaceful Goodbye
+            That night, Aya passes away in her sleep, the jar of stars beside her, hand still resting where Ren last held it. Peace rests on her face, as if she knew her wish had already come true.</p>
+        </div>
+        <!-- Slide 18 -->
+        <div class="slide">
+          <img src="v19.jpg" alt="Slide 18">
+          <p class="slide-text">18. The Letter
+            Back home, Ren finds a sealed letter in Aya’s drawer, addressed to him. It reads:
+            "You are stronger than silence. Let your voice become someone else’s light. I’ll always be with you—in every flower, every star.”
+            </p>
+        </div>
+        <!-- Slide 19 -->
+        <div class="slide">
+          <img src="v20.jpg" alt="Slide 19">
+          <p class="slide-text">19. A New Garden
+            Months pass. Ren and Hana, joined by classmates, plant a community garden in Aya’s memory. It blooms with vibrant sunflowers—her favorite. A small plaque reads: “In loving memory of Aya—a gardener of hearts.”
+            </p>
+        </div>
+        <!-- Slide 20 -->
+        <div class="slide">
+          <img src="v21.jpg" alt="Slide 20">
+          <p class="slide-text">20. A Sky Full of Stars
+            At the school’s spring festival, paper stars hang from trees and float in lanterns. Ren, now more open, steps onstage to give a speech.
+            He clears his throat.
+            “Sometimes, the quietest people love the loudest.”
+            Applause rises—soft, tearful, and full of pride.</p>
+        </div>
+      </div>
+      <button class="nav-btn" id="nextBtn">Next &#10095;</button>
+    </div>
+  </section>
+
+  <section id="about">
+    <h2>Moral</h2>
+    <p>💫 Moral:
+        Healing takes time, but kindness, patience, and love—no matter how small—can guide someone out of the darkest silence.</p>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Created with passion and creativity by <strong>Vishant Bhardwaj</strong> and <strong>Maanya Tyagi</strong>. Feel free to reach out to us at <a href="mailto:example@email.com">example@email.com</a></p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Creative Storytelling Site</p>
+  </footer>
+
+  <script>
+    const slider = document.getElementById('slider');
+    const slides = document.querySelectorAll('.slide');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+
+    let currentIndex = 0;
+    const totalSlides = slides.length;
+    const slideInterval = 5000; // 5 seconds
+
+    function updateSlider() {
+      slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+
+    prevBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex === 0) ? totalSlides - 1 : currentIndex - 1;
+      updateSlider();
+      resetAutoplay();
+    });
+
+    nextBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex === totalSlides - 1) ? 0 : currentIndex + 1;
+      updateSlider();
+      resetAutoplay();
+    });
+
+    let autoplay = setInterval(() => {
+      currentIndex = (currentIndex + 1) % totalSlides;
+      updateSlider();
+    }, slideInterval);
+
+    function resetAutoplay() {
+      clearInterval(autoplay);
+      autoplay = setInterval(() => {
+        currentIndex = (currentIndex + 1) % totalSlides;
+        updateSlider();
+      }, slideInterval);
+    }
+  </script>
+
+</body>
+</html>
